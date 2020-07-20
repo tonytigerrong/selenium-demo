@@ -1,17 +1,16 @@
 package interview.selenium.integrate.test;
 
 
+import interview.selenium.integrate.listener.TestCaseLifecycle_Testng_listener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -37,7 +36,7 @@ import java.util.concurrent.TimeUnit;
  * Thread.sleep  vs util expected condition meet vs Thread.sleep + try interval
  * --------------------------------------------
  */
-@Listeners(interview.selenium.integrate.listener.TestCaseLifecycle.class)
+@Listeners(TestCaseLifecycle_Testng_listener.class)
 public class TestDemo {
     private static Logger logger = LoggerFactory.getLogger(TestDemo.class);
     WebDriver webDriver;

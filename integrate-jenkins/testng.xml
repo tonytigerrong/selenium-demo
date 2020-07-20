@@ -3,9 +3,8 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/jianzhong.Rong/IdeaProjects/selenium-demo/integrate-jenkins">
         <classes>
-            <class name="interview.selenium.integrate.test.TestDemo">
-
-            </class>
+            <class name="interview.selenium.integrate.test.TestDemo"></class>
+            <class name="interview.selenium.integrate.test.WebdriverListenerTestDemo"></class>
         </classes>
     </test>
 </suite>

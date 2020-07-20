@@ -15,8 +15,8 @@ import org.testng.ITestResult;
  * 5. @AfterMethod
  * 6. onFinish
  */
-public class TestCaseLifecycle implements ITestListener {
-    private static Logger logger = LoggerFactory.getLogger(TestCaseLifecycle.class);
+public class TestCaseLifecycle_Testng_listener implements ITestListener {
+    private static Logger logger = LoggerFactory.getLogger(TestCaseLifecycle_Testng_listener.class);
     @Override
     public void onTestStart(ITestResult result) {
         logger.info("In 'OnTestStart': {}",result);
