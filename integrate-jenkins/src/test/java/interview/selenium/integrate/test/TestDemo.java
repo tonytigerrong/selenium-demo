@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -15,14 +17,19 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * --------------------------------------------
  * TestNG :
  * 1. mvn clean install
  * 2. mvn package -DskipTests
  * 3. mvn package -Dmaven.test.skip=true
  * 4. mvn test
+ *---------------------------------------------
  * Tiers:
  * Test Suit  -> Test Case  -> Test Method
  * TestNg.xml -> Test Class -> @Test
+ *--------------------------------------------
+ * Implicit vs Explicit wait
+ * --------------------------------------------
  */
 public class TestDemo {
     private static Logger logger = LoggerFactory.getLogger(TestDemo.class);
@@ -37,6 +44,7 @@ public class TestDemo {
         webDriver.manage().window().maximize();
         webDriver.manage().deleteAllCookies();
         webDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        // implicit wait : wait time between two test/step
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
@@ -45,7 +53,12 @@ public class TestDemo {
         webDriver.get("http://gmail.com");
         WebElement emailInput = webDriver.findElement(By.xpath("/html//input[@id='identifierId']"));
         emailInput.sendKeys("rjianzhong78@gmail.com");
-        WebElement loginBtn = webDriver.findElement(By.xpath("//div[@id='identifierNext']//button[@type='button']/div[@class='VfPpkd-RLmnJb']"));
+        // define Explicit wait
+        WebDriverWait wait = new WebDriverWait(webDriver,30);
+        String loginBtnXpath = "//div[@id='identifierNext']//button[@type='button']/div[@class='VfPpkd-RLmnJb']";
+        // wait 30 sec until loginBtn show up and click-able
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(loginBtnXpath)));
+        WebElement loginBtn = webDriver.findElement(By.xpath(loginBtnXpath));
         loginBtn.click();
         logger.info("Login Gmail Successfully");
     }
