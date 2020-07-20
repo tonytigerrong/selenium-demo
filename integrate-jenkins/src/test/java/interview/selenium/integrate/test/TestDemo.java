@@ -6,14 +6,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -28,9 +33,11 @@ import java.util.concurrent.TimeUnit;
  * Test Suit  -> Test Case  -> Test Method
  * TestNg.xml -> Test Class -> @Test
  *--------------------------------------------
- * Implicit vs Explicit wait
+ * Implicit wait vs Explicit wait                vs Fluent wait
+ * Thread.sleep  vs util expected condition meet vs Thread.sleep + try interval
  * --------------------------------------------
  */
+@Listeners(interview.selenium.integrate.listener.TestCaseLifecycle.class)
 public class TestDemo {
     private static Logger logger = LoggerFactory.getLogger(TestDemo.class);
     WebDriver webDriver;
@@ -63,6 +70,20 @@ public class TestDemo {
         logger.info("Login Gmail Successfully");
     }
 
+    @Test
+    public void loginFacebook(){
+        webDriver.get("https://www.facebook.com/");
+        By usernameBy = By.xpath("//html[@id='facebook']//input[@id='email']");
+        // Fluent wait demo
+        FluentWait<WebDriver> fluentWait = new FluentWait<>(webDriver);
+        fluentWait.withTimeout(Duration.ofSeconds(10)) // sleep 10 secs
+                  .pollingEvery(Duration.ofSeconds(3)) // try every 3 secs
+                  .ignoring(NoSuchElementException.class);
+        WebElement usernameInput = fluentWait.until(driver -> driver.findElement(usernameBy));
+        usernameInput.sendKeys("tonyrong@2008.sina.com");
+
+
+    }
     @AfterMethod
     public void tearDown() {
         logger.info("@AfterMethod");
