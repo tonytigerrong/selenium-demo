@@ -1,0 +1,40 @@
+2020-07-19 13:01:49 INFO  TestDemo:13 - Sum Test
+2020-07-19 13:08:14 INFO  TestDemo:13 - Sum Test
+2020-07-19 13:16:45 INFO  TestDemo:13 - Sum Test
+2020-07-19 13:47:19 INFO  TestDemo:13 - Sum Test
+2020-07-19 20:18:59 INFO  TestDemo:13 - Sum Test
+2020-07-19 20:23:11 INFO  TestDemo:14 - Sum Test
+2020-07-19 20:26:34 INFO  TestDemo:14 - Sum Test
+2020-07-19 20:32:21 INFO  TestDemo:29 - Sum Test
+2020-07-19 20:32:21 INFO  TestDemo:22 - Sum Test
+2020-07-19 20:34:09 INFO  TestDemo:23 - @BeforeMethod
+2020-07-19 20:34:09 INFO  TestDemo:34 - Divid Test
+2020-07-19 20:34:09 INFO  TestDemo:41 - @AfterMethod
+2020-07-19 20:34:09 INFO  TestDemo:23 - @BeforeMethod
+2020-07-19 20:34:09 INFO  TestDemo:27 - Sum Test
+2020-07-19 20:34:09 INFO  TestDemo:41 - @AfterMethod
+2020-07-19 20:50:46 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 20:51:46 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 20:56:38 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:05:14 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:09:38 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:11:39 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:11:55 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:12:50 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:13:04 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:17:03 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:17:18 INFO  TestDemo:57 - Divid Test
+2020-07-19 21:17:18 INFO  TestDemo:64 - @AfterMethod
+2020-07-19 21:17:18 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:17:40 INFO  TestDemo:46 - Get Title Google 
+2020-07-19 21:17:40 INFO  TestDemo:64 - @AfterMethod
+2020-07-19 21:17:40 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:18:05 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:18:12 INFO  TestDemo:57 - Divid Test
+2020-07-19 21:18:12 INFO  TestDemo:64 - @AfterMethod
+2020-07-19 21:18:12 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:18:17 INFO  TestDemo:46 - Get Title Google 
+2020-07-19 21:18:17 INFO  TestDemo:64 - @AfterMethod
+2020-07-19 21:18:17 INFO  TestDemo:30 - @BeforeMethod
+2020-07-19 21:18:23 INFO  TestDemo:50 - Sum Test
+2020-07-19 21:18:23 INFO  TestDemo:64 - @AfterMethod
