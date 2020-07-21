@@ -20,6 +20,7 @@ public class TestDemo2 {
 
     private WebDriver webDriver;
     private EventFiringWebDriver eventHandler;
+    private Listener2 eventListener;
     @BeforeMethod
     public void setUp() {
         String path = "C:\\Users\\jianzhong.Rong\\Downloads\\chromedriver_win32_83\\chromedriver.exe";
@@ -31,7 +32,7 @@ public class TestDemo2 {
         webDriver.manage().deleteAllCookies();
 
         eventHandler = new EventFiringWebDriver(webDriver);
-        Listener2 eventListener = new Listener2();
+        eventListener = new Listener2();
         eventHandler.register(eventListener);
 
 
@@ -39,7 +40,8 @@ public class TestDemo2 {
 
     @AfterMethod
     public void tearDown() {
-        webDriver.close();
+        eventHandler.quit();
+        eventHandler.unregister(eventListener);
     }
 
     @Test
