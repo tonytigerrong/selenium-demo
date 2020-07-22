@@ -35,6 +35,15 @@ import java.util.concurrent.TimeUnit;
  * Implicit wait vs Explicit wait                vs Fluent wait
  * Thread.sleep  vs util expected condition meet vs Thread.sleep + try interval
  * --------------------------------------------
+ *
+ * integrate with Jenkins
+ * 1. run jenkins by administrator
+ * 2. create new item of maven project
+ *  2.1 set up git/maven(mvn clean install -DskipTests)
+ *  2.2 set up git username / password
+ * 3. build now the item
+ * ISSUES: can't run test by mvn test, or build by 'mvn clean install', have to skip test
+ *         test execution blocked on 'onStart'
  */
 @Listeners(TestCaseLifecycle_Testng_listener.class)
 public class TestDemo {
@@ -54,7 +63,7 @@ public class TestDemo {
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-    @Test
+    @Test(priority = 1, groups = "Demo0")
     public void loginGmail() {
         webDriver.get("http://gmail.com");
         WebElement emailInput = webDriver.findElement(By.xpath("/html//input[@id='identifierId']"));
@@ -69,7 +78,7 @@ public class TestDemo {
         logger.info("Login Gmail Successfully");
     }
 
-    @Test
+    @Test(priority = 2, dependsOnMethods = "loginGmail", groups = "Demo0")
     public void loginFacebook(){
         webDriver.get("https://www.facebook.com/");
         By usernameBy = By.xpath("//html[@id='facebook']//input[@id='email']");
